@@ -14,7 +14,9 @@ def dogs_index(request):
 def dogs_detail(request, dog_id):
   dog = Dog.objects.get(id=dog_id)
   feeding_form = FeedingForm()
-  return render(request, 'dogs/detail.html', { 'dog': dog })
+  return render(request, 'dogs/detail.html', {
+    'dog': dog, 'feeding_form': feeding_form
+  })
 def add_feeding(request, dog_id):
   form = FeedingForm(request.POST)
   if form.is_valid():
