@@ -76,7 +76,7 @@ def signup(request):
 
 class DogCreate(LoginRequiredMixin, CreateView):
   model = Dog
-  fields = '__all__'
+  fields = ['name', 'breed', 'description', 'age']
   success_url = '/dogs/'
   def form_valid(self, form):
     form.instance.user = self.request.user
