@@ -3,11 +3,16 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
+
 MEALS = (
     ('B', 'Breakfast'),
     ('L', 'Lunch'),
     ('D', 'Dinner')
 )
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    favorite_color = models.CharField(max_length=50)
 
 class Toy(models.Model):
   name = models.CharField(max_length=50)
